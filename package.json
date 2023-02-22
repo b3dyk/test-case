@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "test-case",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://b3dyk.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://b3dyk.github.io/test-case/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
