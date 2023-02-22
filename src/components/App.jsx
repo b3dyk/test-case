@@ -1,7 +1,6 @@
 import HomePage from 'pages/HomePage/HomePage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import LoginPage from 'pages/LoginPage/LoginPage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
@@ -19,9 +18,7 @@ export const App = () => {
           <Route path="login" element={<LoginPage />} />
         </Route>
 
-        <Route path="" element={<PrivateRoute />}>
-          <Route path="contacts" element={<ContactsPage />} />
-        </Route>
+        <Route path="" element={<PrivateRoute />}></Route>
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

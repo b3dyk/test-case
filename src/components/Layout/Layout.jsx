@@ -1,10 +1,8 @@
 import { Container } from '@mui/material';
 import { Navigation } from 'components/Navigation/Navigation';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { selectLoginToken } from 'redux/auth/auth.selectors';
-import icon from '../../images/logo.png';
 import {
   Header,
   HeaderWrapper,
@@ -23,10 +21,8 @@ export const Layout = () => {
       <Header>
         <Container>
           <HeaderWrapper>
-            <Link to="/">
-              <img src={icon} alt="home" width="150" />
-            </Link>
-            {token ? <UserMenu /> : <Navigation />}
+            <Link to="/">Home</Link>
+            <Navigation />
           </HeaderWrapper>
         </Container>
       </Header>
