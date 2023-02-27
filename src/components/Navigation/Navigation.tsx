@@ -1,6 +1,7 @@
-import { List, StyledLink } from './Navigation.styled';
+import React from "react";
+import { List, StyledLink } from "./Navigation.styled";
 
-export const Navigation = () => {
+export const Navigation: React.FC = () => {
   return (
     <nav>
       <List>

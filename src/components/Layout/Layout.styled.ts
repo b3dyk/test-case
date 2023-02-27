@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export const Header = styled.header`
   border-bottom: 1px solid transparent;
@@ -43,7 +43,6 @@ export const Item = styled.li`
     background-color: var(--color-btn-main);
     color: #fff;
   }
-
   :hover a {
     color: #fff;
   }
@@ -56,7 +55,6 @@ export const StyledLink = styled(NavLink)`
   line-height: 1.2;
   text-decoration: none;
   padding: 8px 16px;
-
   &.active {
     background-color: var(--color-btn-main);
     color: #fff;

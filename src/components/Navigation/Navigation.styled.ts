@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export const List = styled.ul`
   list-style: none;
@@ -14,12 +14,10 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 4px;
-
   :hover {
     background-color: var(--color-accent);
     color: #fff;
   }
-
   &.active {
     background-color: var(--color-accent);
     color: #fff;
