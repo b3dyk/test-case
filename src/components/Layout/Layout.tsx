@@ -33,10 +33,14 @@ export const Layout: React.FC = (): ReactElement => {
                 <Item>
                   <StyledLink to="/">Home Page</StyledLink>
                 </Item>
+                <Item>
+                  <StyledLink to="/news">News</StyledLink>
+                </Item>
               </List>
             </SideBar>
-
-            <Outlet />
+            <div>
+              <Outlet />
+            </div>
           </Wrapper>
         </div>
       </main>
