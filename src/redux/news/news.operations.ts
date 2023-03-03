@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const newsAPI = axios.create({
-  baseURL: "https://newsapi.org/v2",
+  baseURL: "https://content.guardianapis.com",
 });
 
 interface INews {
@@ -14,20 +14,19 @@ interface INews {
 export const fetchNews = createAsyncThunk(
   "news/get",
   async (page: number, thunkAPI) => {
-    const { data } = await newsAPI.get("/top-headlines", {
+    const { data } = await newsAPI.get("/search", {
       params: {
-        apiKey: "ca5dbcc276e7435884fde9c13a27e17f",
-        country: "ua",
-        pageSize: 5,
+        "api-key": "2e7e609f-60c0-4a89-a416-d5c3b63f7d43",
+        q: "ukraine",
         page,
       },
     });
-
-    const news: INews[] = data.articles.map((item: any) => {
+    console.log(data.response.results);
+    const news: INews[] = data.response.results.map((item: any) => {
       return {
         author: item.author,
-        title: item.title,
-        url: item.url,
+        title: item.webTitle,
+        url: item.webUrl,
       };
     });
     return news;
