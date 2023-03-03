@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
-// import { Navigate, Outlet } from "react-router-dom";
+import { selectUser } from "../../redux/auth/auth.selector";
+import { useAppSelector } from "../../redux/hooks";
+import { Navigate, Outlet } from "react-router-dom";
 
 export const PublicRoute: React.FC = () => {
-  return <></>;
-};
+  const user = useAppSelector(selectUser);
+  console.log(user);
 
-// return token ? <Navigate to="/" replace /> : <Outlet />;
+  return user ? <Navigate to="/" replace /> : <Outlet />;
+};

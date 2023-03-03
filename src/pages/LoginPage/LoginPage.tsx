@@ -1,30 +1,27 @@
-import { Container } from "@mui/material";
-// import { Form, Wrapper } from "pages/RegisterPage/RegisterPage.styled";
-// import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { authLogin } from "redux/auth/auth.operations";
+import { Button, Container, TextField } from "@mui/material";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../../redux/auth/auth.slice";
 
 const LoginPage: React.FC = () => {
-  //   const dispatch = useDispatch();
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  //   const handleSubmit = async (
-  //     evt: React.FormEvent<HTMLFormElement>
-  //   ): Promise<void> => {
-  //     evt.preventDefault();
-  //     try {
-  //       await dispatch(authLogin({ email, password })).unwrap();
-  //     } catch (error) {
-  //       alert("Invalid email or password. Please try again");
-  //     }
-  //   };
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
+    evt.preventDefault();
+    try {
+      dispatch(loginAction({ email, password }));
+    } catch (error) {
+      alert("Invalid email or password. Please try again");
+    }
+  };
 
   return (
     <Container>
-      {/* <Wrapper>
+      <div>
         <h2>Please Log In</h2>
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <TextField
             id="outlined-basic"
             label="Email"
@@ -48,8 +45,8 @@ const LoginPage: React.FC = () => {
           <Button variant="contained" type="submit">
             Login
           </Button>
-        </Form>
-      </Wrapper> */}
+        </form>
+      </div>
     </Container>
   );
 };

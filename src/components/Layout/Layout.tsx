@@ -11,8 +11,13 @@ import {
   Wrapper,
 } from "./Layout.styled";
 import { Navigation } from "../Navigation/Navigation";
+import { useAppSelector } from "../../redux/hooks";
+import { selectUser } from "../../redux/auth/auth.selector";
+import { Profile } from "../Profile/Profile";
 
 export const Layout: React.FC = (): ReactElement => {
+  const user = useAppSelector(selectUser);
+
   return (
     <>
       <Header>
@@ -21,7 +26,7 @@ export const Layout: React.FC = (): ReactElement => {
             <Link to="/">
               <img src={icon} alt="home" width="150" />
             </Link>
-            <Navigation />
+            {user ? <Profile /> : <Navigation />}
           </HeaderWrapper>
         </div>
       </Header>
@@ -33,9 +38,11 @@ export const Layout: React.FC = (): ReactElement => {
                 <Item>
                   <StyledLink to="/">Home Page</StyledLink>
                 </Item>
-                <Item>
-                  <StyledLink to="/news">News</StyledLink>
-                </Item>
+                {user && (
+                  <Item>
+                    <StyledLink to="/news">News</StyledLink>
+                  </Item>
+                )}
               </List>
             </SideBar>
             <div>

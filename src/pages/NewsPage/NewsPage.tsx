@@ -1,3 +1,4 @@
+import { Button, List } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchNews } from "../../redux/news/news.operations";
@@ -17,17 +18,17 @@ const NewsPage: React.FC = () => {
   };
   return (
     <>
-      <ul>
+      <List>
         {news &&
           news.map((item: any, idx: number) => (
             <li key={idx}>
               <a href={item.url}>{item.title}</a>
             </li>
           ))}
-      </ul>
-      <button type="button" onClick={handleClick}>
+      </List>
+      <Button type="button" onClick={handleClick}>
         Get More
-      </button>
+      </Button>
     </>
   );
 };

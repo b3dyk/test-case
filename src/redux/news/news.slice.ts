@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchNews } from "./news.operations";
 
 interface INews {
-  author: string;
+  id: string;
   title: string;
   url: string;
 }

@@ -8,9 +8,6 @@ export const Navigation: React.FC = () => {
         <li>
           <StyledLink to="login">Log In</StyledLink>
         </li>
-        <li>
-          <StyledLink to="register">Register</StyledLink>
-        </li>
       </List>
     </nav>
   );
