@@ -5,13 +5,15 @@ import { loginAction } from "../../redux/auth/auth.slice";
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
     evt.preventDefault();
     try {
-      dispatch(loginAction({ email, password }));
+      if (login !== "admin" || password !== "12345")
+        throw new Error("Invalid login data");
+      dispatch(loginAction({ login, password }));
     } catch (error) {
       alert("Invalid email or password. Please try again");
     }
@@ -24,12 +26,12 @@ const LoginPage: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             id="outlined-basic"
-            label="Email"
+            label="Login"
             variant="outlined"
-            type="email"
-            name="email"
-            value={email}
-            onChange={({ target: { value } }) => setEmail(value)}
+            type="text"
+            name="login"
+            value={login}
+            onChange={({ target: { value } }) => setLogin(value)}
           />
 
           <TextField

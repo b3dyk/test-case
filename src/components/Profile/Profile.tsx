@@ -15,7 +15,7 @@ export const Profile: React.FC = () => {
 
   return (
     <>
-      <Link to="/profile">{user?.email}</Link>
+      <Link to="/profile">{user?.login}</Link>
       <Button onClick={handleLogout}>Logout</Button>
     </>
   );

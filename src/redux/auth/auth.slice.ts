@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 type User = {
-  email: string;
+  login: string;
   password: string;
 };
 
