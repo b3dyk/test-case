@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import NewsPage from "../pages/NewsPage/NewsPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import { PrivateRoute } from "./AuthRoutes/PrivateRoutes";
 import { PublicRoute } from "./AuthRoutes/PublicRoutes";
@@ -23,6 +24,8 @@ const App: React.FC = () => {
           <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Route>
+
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

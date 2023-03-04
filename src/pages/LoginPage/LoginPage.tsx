@@ -1,9 +1,12 @@
 import { Button, Container, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+
 import { loginAction } from "../../redux/auth/auth.slice";
 
 const LoginPage: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -15,18 +18,18 @@ const LoginPage: React.FC = () => {
         throw new Error("Invalid login data");
       dispatch(loginAction({ login, password }));
     } catch (error) {
-      alert("Invalid email or password. Please try again");
+      alert(t("check"));
     }
   };
 
   return (
     <Container>
       <div>
-        <h2>Please Log In</h2>
+        <h2>{t("loginText")}</h2>
         <form onSubmit={handleSubmit}>
           <TextField
             id="outlined-basic"
-            label="Login"
+            label={t("formLogin")}
             variant="outlined"
             type="text"
             name="login"
@@ -36,7 +39,7 @@ const LoginPage: React.FC = () => {
 
           <TextField
             id="outlined-basic"
-            label="Password"
+            label={t("password")}
             variant="outlined"
             type="password"
             name="password"
@@ -45,7 +48,7 @@ const LoginPage: React.FC = () => {
           />
 
           <Button variant="contained" type="submit">
-            Login
+            {t("login")}
           </Button>
         </form>
       </div>
