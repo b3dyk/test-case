@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
+export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
+
+  margin-left: auto;
+  margin-right: 24px;
 `;
 
 export const StyledLink = styled(NavLink)`
