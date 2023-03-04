@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Header = styled.header`
   border-bottom: 1px solid transparent;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -9,22 +15,15 @@ export const Header = styled.header`
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 24px;
 `;
 
-export const Wrapper = styled.div`
+export const NavBar = styled.nav`
   display: flex;
-  justify-content: flex-start;
-  padding: 24px;
-`;
-
-export const SideBar = styled.aside`
-  min-width: 200px;
-  padding: 36px;
-  background-color: var(--color-bg-secindary);
-  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 `;
 
 export const List = styled.ul`
@@ -32,7 +31,6 @@ export const List = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
   gap: 8px;
 `;
 
@@ -59,4 +57,13 @@ export const StyledLink = styled(NavLink)`
     background-color: var(--color-btn-main);
     color: #fff;
   }
+`;
+
+export const Footer = styled.footer`
+  margin-top: auto;
+  text-align: center;
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid transparent;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 `;

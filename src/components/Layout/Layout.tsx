@@ -2,11 +2,12 @@ import React, { ReactElement } from "react";
 import { Link, Outlet } from "react-router-dom";
 import icon from "../../images/logo.png";
 import {
+  Footer,
   Header,
   HeaderWrapper,
   Item,
   List,
-  SideBar,
+  NavBar,
   StyledLink,
   Wrapper,
 } from "./Layout.styled";
@@ -17,20 +18,32 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectUser } from "../../redux/auth/auth.selector";
 import { Profile } from "../Profile/Profile";
 import { langs } from "../../i18next/langs";
-import { Button, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup, Container } from "@mui/material";
 
 export const Layout: React.FC = (): ReactElement => {
   const { t, i18n } = useTranslation();
   const user = useAppSelector(selectUser);
 
   return (
-    <>
+    <Wrapper>
       <Header>
-        <div>
+        <Container>
           <HeaderWrapper>
-            <Link to="/">
-              <img src={icon} alt="home" width="150" />
-            </Link>
+            <NavBar>
+              <Link to="/">
+                <img src={icon} alt="home" width="150" />
+              </Link>
+
+              <List>
+                <Item>
+                  <StyledLink to="/">{t("homePage")}</StyledLink>
+                </Item>
+                <Item>
+                  <StyledLink to="/news">{t("news")}</StyledLink>
+                </Item>
+              </List>
+            </NavBar>
+            {user ? <Profile /> : <Navigation />}
             <ButtonGroup
               variant="contained"
               aria-label="outlined primary button group"
@@ -48,31 +61,19 @@ export const Layout: React.FC = (): ReactElement => {
                 </Button>
               ))}
             </ButtonGroup>
-            {user ? <Profile /> : <Navigation />}
           </HeaderWrapper>
-        </div>
+        </Container>
       </Header>
       <main>
-        <div>
-          <Wrapper>
-            <SideBar>
-              <List>
-                <Item>
-                  <StyledLink to="/">{t("homePage")}</StyledLink>
-                </Item>
-                {user && (
-                  <Item>
-                    <StyledLink to="/news">{t("news")}</StyledLink>
-                  </Item>
-                )}
-              </List>
-            </SideBar>
-            <div>
-              <Outlet />
-            </div>
-          </Wrapper>
-        </div>
+        <Container>
+          <Outlet />
+        </Container>
       </main>
-    </>
+      <Footer>
+        <Container>
+          <p>&#169;{t("copyright")}</p>
+        </Container>
+      </Footer>
+    </Wrapper>
   );
 };

@@ -21,6 +21,7 @@ i18next
           more: "Get More",
           check: "Invalid email or password. Please try again",
           loading: "Loading...",
+          copyright: "All rights reserved",
         },
       },
       ua: {
@@ -35,6 +36,7 @@ i18next
           more: "Більше",
           check: "Неправильний логін або пароль. Будь ласка, спробуйте ще раз",
           loading: "Завантажуємо...",
+          copyright: "Захищено авторським правом",
         },
       },
     },

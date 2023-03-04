@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { selectUser } from "../../redux/auth/auth.selector";
 import { logoutAction } from "../../redux/auth/auth.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { Wrapper } from "./Profile.styled";
 
 export const Profile: React.FC = () => {
   const { t } = useTranslation();
@@ -16,9 +17,11 @@ export const Profile: React.FC = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <Link to="/profile">{user?.login}</Link>
-      <Button onClick={handleLogout}>{t("logout")}</Button>
-    </>
+      <Button variant="outlined" color="error" onClick={handleLogout}>
+        {t("logout")}
+      </Button>
+    </Wrapper>
   );
 };

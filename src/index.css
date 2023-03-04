@@ -8,7 +8,7 @@
   --color-text-secondary: #535353;
   --color-accent: #e65100;
 
-  --color-bg-secindary: #ececec;
+  --color-bg-secondary: #ececec;
 }
 
 body {
@@ -23,4 +23,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+img {
+  display: block;
 }
