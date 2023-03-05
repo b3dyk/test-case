@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-
-  margin-left: auto;
-  margin-right: 24px;
+  flex-direction: column;
 `;

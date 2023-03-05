@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -8,6 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.header`
+  margin-bottom: 16px;
   border-bottom: 1px solid transparent;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -19,48 +19,24 @@ export const HeaderWrapper = styled.div`
   padding: 24px;
 `;
 
-export const NavBar = styled.nav`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-`;
-
-export const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-`;
-
-export const Item = styled.li`
+export const Select = styled.select`
   border-radius: 4px;
-  overflow: hidden;
-  :hover {
-    background-color: var(--color-btn-main);
-    color: #fff;
-  }
-  :hover a {
-    color: #fff;
-  }
-`;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  padding: 8px;
+  color: var(--color-form);
+  border-color: var(--color-form);
 
-export const StyledLink = styled(NavLink)`
-  display: block;
-  color: var(--color-text-primary);
-  font-size: 20px;
-  line-height: 1.2;
-  text-decoration: none;
-  padding: 8px 16px;
-  &.active {
-    background-color: var(--color-btn-main);
-    color: #fff;
+  :focus-within {
+    outline: 1px solid transparent;
   }
 `;
 
 export const Footer = styled.footer`
   margin-top: auto;
+  padding-top: 32px;
+  padding-bottom: 32px;
   text-align: center;
   background-color: var(--color-bg-secondary);
   border-top: 1px solid transparent;
