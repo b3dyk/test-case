@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { selectUser } from "../../redux/auth/auth.selector";
 import { logoutAction } from "../../redux/auth/auth.slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -14,11 +14,13 @@ export const Profile: React.FC = () => {
 
   const handleLogout = () => {
     dispatch(logoutAction());
+
+    Notify.info(t("goodbye"), { position: "center-top" });
   };
 
   return (
     <Wrapper>
-      <Link to="/profile">{user?.login}</Link>
+      <p>{user?.login}</p>
       <Button variant="outlined" color="error" onClick={handleLogout}>
         {t("logout")}
       </Button>

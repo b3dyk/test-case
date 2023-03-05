@@ -1,66 +1,47 @@
 import React, { ReactElement } from "react";
-import { Link, Outlet } from "react-router-dom";
-import icon from "../../images/logo.png";
+import { Outlet } from "react-router-dom";
 import {
   Footer,
   Header,
   HeaderWrapper,
-  Item,
-  List,
-  NavBar,
-  StyledLink,
+  Select,
   Wrapper,
 } from "./Layout.styled";
 import { useTranslation } from "react-i18next";
 
-import { Navigation } from "../Navigation/Navigation";
+import { Login } from "../Login/Login";
 import { useAppSelector } from "../../redux/hooks";
 import { selectUser } from "../../redux/auth/auth.selector";
 import { Profile } from "../Profile/Profile";
 import { langs } from "../../i18next/langs";
-import { Button, ButtonGroup, Container } from "@mui/material";
+import { Container } from "@mui/material";
+import { Navigation } from "../Navigation/Navigation";
 
 export const Layout: React.FC = (): ReactElement => {
   const { t, i18n } = useTranslation();
   const user = useAppSelector(selectUser);
+
+  const onLanguageChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = evt.target;
+    i18n.changeLanguage(value);
+  };
 
   return (
     <Wrapper>
       <Header>
         <Container>
           <HeaderWrapper>
-            <NavBar>
-              <Link to="/">
-                <img src={icon} alt="home" width="150" />
-              </Link>
+            <Navigation />
 
-              <List>
-                <Item>
-                  <StyledLink to="/">{t("homePage")}</StyledLink>
-                </Item>
-                <Item>
-                  <StyledLink to="/news">{t("news")}</StyledLink>
-                </Item>
-              </List>
-            </NavBar>
-            {user ? <Profile /> : <Navigation />}
-            <ButtonGroup
-              variant="contained"
-              aria-label="outlined primary button group"
-              size="small"
-              orientation="vertical"
-            >
+            {user ? <Profile /> : <Login />}
+
+            <Select name="language" onChange={onLanguageChange}>
               {Object.keys(langs).map((lang) => (
-                <Button
-                  type="submit"
-                  key={lang}
-                  onClick={() => i18n.changeLanguage(lang)}
-                  disabled={i18n.resolvedLanguage === lang}
-                >
+                <option key={lang} value={lang}>
                   {lang}
-                </Button>
+                </option>
               ))}
-            </ButtonGroup>
+            </Select>
           </HeaderWrapper>
         </Container>
       </Header>
