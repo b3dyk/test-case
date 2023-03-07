@@ -29,6 +29,8 @@ const LoginPage: React.FC = () => {
       });
       navigate("/profile");
     } catch (error) {
+      console.log(error);
+
       Notify.failure(t("check"), {
         position: "center-top",
       });
