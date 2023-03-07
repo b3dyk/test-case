@@ -35,7 +35,11 @@ export const Layout: React.FC = (): ReactElement => {
 
             {user ? <Profile /> : <Login />}
 
-            <Select name="language" onChange={onLanguageChange}>
+            <Select
+              name="language"
+              onChange={onLanguageChange}
+              value={localStorage.getItem("i18nextLng") ?? "en"}
+            >
               {Object.keys(langs).map((lang) => (
                 <option key={lang} value={lang}>
                   {lang}
