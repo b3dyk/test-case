@@ -68,9 +68,8 @@ const NewsPage: React.FC = () => {
             <li key={id}>
               <NewsLink href={url} target="_blank">
                 {title}
-                <Author> - Guardian</Author>
               </NewsLink>
-
+              <Author> - Guardian</Author>
               <IconButton aria-label="delete" onClick={() => handleDelete(id)}>
                 <DeleteIcon />
               </IconButton>
