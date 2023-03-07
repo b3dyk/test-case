@@ -1,0 +1,23 @@
+{
+  "translation": {
+    "login": "Login",
+    "loginText": "Please Log In",
+    "welcome": "Welcome back,",
+    "goodbye": "See you later",
+    "homePage": "Home Page",
+    "news": "News",
+    "profile": "Profile",
+    "formLogin": "Login",
+    "password": "Password",
+    "logout": "Log Out",
+    "more": "Get More",
+    "check": "Invalid email or password. Please try again",
+    "newsHeading": "Top news on Ukraine",
+    "loading": "Loading...",
+    "personalData": "Personal Data",
+    "services": "Services",
+    "settings": "Settings",
+    "pending": "Pending...",
+    "copyright": "All rights reserved"
+  }
+}
